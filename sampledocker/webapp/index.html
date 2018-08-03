@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+     google.charts.load('current', {
+       'packages': ['geochart'],
+       // Note: you will need to get a mapsApiKey for your project.
+       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+       'mapsApiKey': 'AIzaSyCosBgkjgqrWcMuDoXuSH_U5F48PcSJ1eE'
+     });
+     google.charts.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['State',   'Growth Rate in GSPD -agriculture'],
+        ['andhra pradesh',      6],
+        ['arunachal pradesh',     16],
+        ['assam',    7],
+        ['bihar',     15],
+        ['chhattisgarh',   5],
+        ['delhi',     17],
+        ['goa',   27],
+        ['gujarat',  25],
+        ['haryana', 14],
+        ['himachal pradesh',   4],
+        ['jammu and kashmir', 20],
+        ['jharkhand',2],
+        ['karnataka',29],
+        ['kerala',24],
+        ['madhya pradesh',1],
+        ['maharashtra',21],
+        ['manipur',19],
+        ['meghalaya',10],
+        ['mizoram',28],
+        ['nagaland',8],
+        ['orrisa',22],
+        ['punjab',23],
+        ['rajasthan',26],
+        ['sikkim',3],
+        ['tamil nadu',18],
+        ['tripura',12],
+        ['uttar pradesh',9],
+        ['uttarkhand',11],
+        ['west bengal',13]
+      ]);
+      var options = {
+        region: 'IN',
+        displayMode:'regions',
+        resolution:'provinces',
+        width:640,
+        height:480,
+//        colorAxis: {color: ['green', 'darkgreen']}
+        colorAxis: {values:[0,10,11,20,21,30],
+                    colors: ['lightgreen','lightgreen','green','green', 'darkgreen','darkgreen']
+        }
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data,options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="margin: len"></div>
+  </body>
+</html>
